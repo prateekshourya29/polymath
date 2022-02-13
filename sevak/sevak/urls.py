@@ -20,6 +20,6 @@ from graphene_django.views import GraphQLView
 from sevak.schema import schema
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('graphql/', GraphQLView.as_view(graphiql=True, schema=schema)),
+    path('api/admin/', admin.site.urls),
+    path('api/graphql/', GraphQLView.as_view(graphiql=True, schema=schema)),
 ]
