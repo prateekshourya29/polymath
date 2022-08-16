@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # 3rd Party Apps
+    'graphene_django',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
