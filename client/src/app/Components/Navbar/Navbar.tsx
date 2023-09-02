@@ -1,7 +1,8 @@
+import React, { useEffect, useState } from "react";
 import { LogoutOutlined } from "@ant-design/icons";
-import { Button, Popover, Typography } from "antd";
+import { Button, Popover, Space, Typography } from "antd";
 import { Header } from "antd/lib/layout/layout";
-import React, { Fragment, useEffect, useState } from "react";
+import { buttonStyles } from "../../styles";
 
 const Navbar: React.FC = () => {
   const [isAuth, setIsAuth] = useState<boolean>(false);
@@ -44,14 +45,13 @@ const Navbar: React.FC = () => {
   return (
     <Header
       style={{
-        zIndex: 1,
         width: "100%",
         marginBottom: "5px",
         backgroundColor: "white",
         display: "flex",
       }}
     >
-      <Text style={{ fontSize: "24px", flex: "1 1 auto" }}>Polymath</Text>
+      <Text style={{ fontSize: "35px", flex: "1 1 auto" }}>Polymath</Text>
       {isAuth && (
         <Popover
           placement="bottomRight"
@@ -59,32 +59,33 @@ const Navbar: React.FC = () => {
           visible={visible}
           onVisibleChange={handleVisibleChange}
           content={
-            <Fragment>
+            <Space size={20}>
               <Button
                 type="primary"
                 ghost
-                style={{ marginRight: "15px" }}
                 onClick={handleLogout}
+                style={buttonStyles}
               >
                 Yes
               </Button>
-              <Button danger onClick={close}>
+              <Button danger onClick={close} style={buttonStyles}>
                 No
               </Button>
-            </Fragment>
+            </Space>
           }
           trigger="click"
+          overlayInnerStyle={{ borderRadius: "15px" }}
         >
           <Button
             type="text"
             size="large"
             style={{
-              fontSize: "18px",
+              fontSize: "21px",
               flex: "0 0 auto",
               margin: "auto",
             }}
           >
-            Logout <LogoutOutlined style={{ fontSize: "16px" }} />
+            Logout <LogoutOutlined style={{ fontSize: "17px" }} />
           </Button>
         </Popover>
       )}

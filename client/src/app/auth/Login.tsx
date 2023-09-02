@@ -1,6 +1,6 @@
+import React, { useState, useEffect } from "react";
 import { Button, Card, Col, Form, Input, Row, Typography } from "antd";
-import React, { useState, useEffect, Fragment } from "react";
-import { backgroundStyle } from "../styles";
+import { background } from "../styles";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -47,76 +47,74 @@ const Login: React.FC = () => {
   };
 
   return (
-    <Fragment>
+    <div style={background}>
       {!loading && (
-        <div style={backgroundStyle}>
-          <Card style={{ width: 400, margin: "auto" }}>
-            <Row>
-              <Col
-                span={22}
-                offset={1}
-                style={{ textAlign: "center", paddingBottom: "40px" }}
-              >
-                <Text style={{ fontSize: "20px" }}>Polymath</Text>
-              </Col>
-              <Col span={22} offset={1} style={{ textAlign: "center" }}>
-                <Form name="login-form" onSubmitCapture={onSubmit}>
-                  <Form.Item
-                    name="email"
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please input your email!",
-                      },
-                    ]}
-                  >
-                    <Input
-                      placeholder="E-mail"
-                      value={email}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                        setEmail(e.target.value)
-                      }
-                    />
-                  </Form.Item>
-                  <Form.Item
-                    name="password"
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please input your password!",
-                      },
-                    ]}
-                  >
-                    <Input.Password
-                      placeholder="Password"
-                      value={password}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                        setPassword(e.target.value)
-                      }
-                    />
-                  </Form.Item>
-                  <Form.Item style={{ marginBottom: "0" }}>
-                    <Button block type="primary" htmlType="submit">
-                      Login
-                    </Button>
-                  </Form.Item>
-                </Form>
-              </Col>
-              <Col>
-                <Button
-                  type="link"
-                  onClick={() =>
-                    window.location.replace("http://localhost:3000/signup")
-                  }
+        <Card style={{ width: 400, margin: "auto" }}>
+          <Row>
+            <Col
+              span={22}
+              offset={1}
+              style={{ textAlign: "center", paddingBottom: "40px" }}
+            >
+              <Text style={{ fontSize: "20px" }}>Polymath</Text>
+            </Col>
+            <Col span={22} offset={1} style={{ textAlign: "center" }}>
+              <Form name="login-form" onSubmitCapture={onSubmit}>
+                <Form.Item
+                  name="email"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your email!",
+                    },
+                  ]}
                 >
-                  Sign Up
-                </Button>
-              </Col>
-            </Row>
-          </Card>
-        </div>
+                  <Input
+                    placeholder="E-mail"
+                    value={email}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      setEmail(e.target.value)
+                    }
+                  />
+                </Form.Item>
+                <Form.Item
+                  name="password"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Please input your password!",
+                    },
+                  ]}
+                >
+                  <Input.Password
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      setPassword(e.target.value)
+                    }
+                  />
+                </Form.Item>
+                <Form.Item style={{ marginBottom: "0" }}>
+                  <Button block type="primary" htmlType="submit">
+                    Login
+                  </Button>
+                </Form.Item>
+              </Form>
+            </Col>
+            <Col>
+              <Button
+                type="link"
+                onClick={() =>
+                  window.location.replace("http://localhost:3000/signup")
+                }
+              >
+                Sign Up
+              </Button>
+            </Col>
+          </Row>
+        </Card>
       )}
-    </Fragment>
+    </div>
   );
 };
 

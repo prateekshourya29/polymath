@@ -1,18 +1,18 @@
-import { Fragment } from "react";
-import "antd/dist/antd.min.css";
+import React, { Fragment } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Divider } from "antd";
+import "antd/dist/antd.min.css";
 import Navbar from "./Components/Navbar/Navbar";
 import Dashboard from "./Components/Dashboard";
 import Login from "./auth/Login";
 import Signup from "./auth/Signup";
-import { Divider } from "antd";
 
-const App: () => JSX.Element = () => {
+const App: React.FunctionComponent = () => {
   return (
     <Fragment>
       <Router>
         <Navbar />
-        <Divider style={{ margin: "0px" }} />
+        <Divider className="divider" style={{ margin: "0px" }} />
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
